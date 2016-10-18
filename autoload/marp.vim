@@ -13,11 +13,13 @@ function! s:init(file)
 endfunction
 
 function! s:header()
-  return get(g:, 'marp_header', '')
+  return [get(g:, 'marp_header', '')]
 endfunction
 
 function! s:footer()
-  return get(g:, 'marp_footer', s:page_number . '/' . s:total_pages)
+  let footer = get(g:, 'marp_footer', s:page_number . '/' . s:total_pages)
+  let padding = repeat('-', (80 - len(footer))/2)
+  return ['', printf(padding."%*s%*s".padding, 2+len(footer)/2, footer, 2-len(footer)/2,'')]
 endfunction
 
 function! s:paginate(lines)
@@ -41,9 +43,9 @@ endfunction
 
 function! s:set_page()
   let content = []
-  call add(content, s:header())
-  call extend(content, s:pages[s:page_number - 1])
-  call add(content, s:footer())
+  let content += s:header()
+  let content += s:pages[s:page_number - 1]
+  let content += s:footer()
 
   normal! ggdG
   call setline(1, content)
