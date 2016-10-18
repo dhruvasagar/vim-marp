@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------------
 
         Simple presentations from markdown files inspired from Marp tool
-                                  Version 0.1
+                                  Version 0.1.1
 
                  Author: Dhruva Sagar (http://dhruvasagar.com)
                License: MIT (http://opensource.org/licenses/MIT)
@@ -24,6 +24,9 @@ USAGE                                                               *marp-usage*
     stores your current vim layout in a temporary session and opens a single
     new window for displaying the presentation pages. You will get back your
     original layout once you stop the presentation with |:MarpStop|
+
+    Alternatively you can also start presentation view with the
+    |:MarpFileStart| command giving the marp file as an input.
 
 ------------------------------------------------------------------------------
 OPTIONS                                                           *marp-options*
@@ -69,6 +72,11 @@ COMMANDS                                                         *marp-commands*
                                                                 *marp-:MarpLast*
     :MarpLast
           Goes to the last page of the presentation
+
+                                                                *:MarpFileStart*
+                                                           *marp-:MarpFileStart*
+    :MarpFileStart
+          Starts the presentation view with an input marp file
 
 ------------------------------------------------------------------------------
 MAPPINGS                                                         *marp-mappings*

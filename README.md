@@ -1,4 +1,4 @@
-# VIM Marp v0.1
+# VIM Marp v0.1.1
 
 A simple presentation tool to present marp files from within vim
 
@@ -14,6 +14,9 @@ in a temporary session and open a new buffer to display the presentation page
 content to remove distractions. Once your presentation is done, you can invoke
 `:MarpStop` to end the presentation, this will restore your session as it was
 before you started your presentation.
+
+Alternatively you can also start presentation view with the |:MarpFileStart|
+command giving the marp file as an input.
 
 ## Contributing
 
