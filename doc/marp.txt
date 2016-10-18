@@ -1,0 +1,100 @@
+*marp.txt*     Presentations in VIM from markdown file                  *marp*
+------------------------------------------------------------------------------
+
+        Simple presentations from markdown files inspired from Marp tool
+                                  Version 0.1
+
+                 Author: Dhruva Sagar (http://dhruvasagar.com)
+               License: MIT (http://opensource.org/licenses/MIT)
+
+------------------------------------------------------------------------------
+CONTENTS                                                         *marp-contents*
+
+    1. Usage .......................................... |marp-usage|
+    2. Options ........................................ |marp-options|
+    3. jommands ....................................... |marp-commands|
+    4. Mappings ....................................... |marp-mappings|
+    5. Contributing ................................... |marp-contributing|
+    6. Credits ........................................ |marp-credits|
+
+------------------------------------------------------------------------------
+USAGE                                                               *marp-usage*
+
+    Just open your marp markdown presentation file and invoke |:MarpStart| This
+    stores your current vim layout in a temporary session and opens a single
+    new window for displaying the presentation pages. You will get back your
+    original layout once you stop the presentation with |:MarpStop|
+
+------------------------------------------------------------------------------
+OPTIONS                                                           *marp-options*
+
+                                                                *marp_delimiter*
+    g:marp_delimiter
+          Defines the delimiter for page break.
+          Defaults to `---`, same as Marp
+
+------------------------------------------------------------------------------
+COMMANDS                                                         *marp-commands*
+
+                                                                    *:MarpStart*
+                                                       *marp-:MarpStart*
+    :MarpStart
+          Starts the presentation view. Closes all current open windows / tabs
+          by saving them into a temporary session and starts a new window for
+          displaying the contents of the presentation page by page.
+
+                                                                     *:MarpStop*
+                                                                *marp-:MarpStop*
+    :MarpStop
+          Stops the current presentation session. Restores all windows / tabs
+          open before the marp session started from the temporary stored
+          session.
+
+                                                                    *:MarpFirst*
+                                                               *marp-:MarpFirst*
+    :MarpFirst
+          Goes to the first page of the presentation
+
+                                                                     *:MarpPrev*
+                                                                *marp-:MarpPrev*
+    :MarpPrev
+          Goes to the previous page of the presentation
+
+                                                                     *:MarpNext*
+                                                                *marp-:MarpNext*
+    :MarpNext
+          Goes to the next page of the presentation
+
+                                                                     *:MarpLast*
+                                                                *marp-:MarpLast*
+    :MarpLast
+          Goes to the last page of the presentation
+
+------------------------------------------------------------------------------
+MAPPINGS                                                         *marp-mappings*
+
+                                                               *marp-<Leader>ms*
+    `<Leader>ms`: mapping for `:MarpStart`
+
+                                                               *marp-<Leader>mS*
+    `<Leader>mS`: mapping for `:MarpStop`
+
+                                                               *marp-<Leader>mf*
+    `<Leader>mf`: mapping for `:MarpFirst`
+
+                                                               *marp-<Leader>mp*
+    `<Leader>mp`: mapping for `:MarpPrev`
+
+                                                               *marp-<Leader>mn*
+    `<Leader>mn`: mapping for `:MarpNext`
+
+                                                               *marp-<Leader>ml*
+    `<Leader>ml`: mapping for `:MarpLast`
+
+------------------------------------------------------------------------------
+CONTRIBUTING                                                 *marp-contributing*
+------------------------------------------------------------------------------
+CREDITS                                                           *marp-credits*
+
+    This plugin was inspired by Marp (https://yhatt.github.io/marp/).
+    It uses Marp compatible files to present from within vim.
