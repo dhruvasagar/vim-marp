@@ -2,7 +2,38 @@ function! s:readfile(file)
   return readfile(a:file)
 endfunction
 
+function! s:toggle_marp_mode()
+  let g:marp_mode = !get(g:, 'marp_mode', 0)
+  if g:marp_mode
+    command! MarpStop call marp#stop()
+    command! MarpFirst call marp#first_page()
+    command! MarpPrev call marp#prev_page()
+    command! MarpNext call marp#next_page()
+    command! MarpLast call marp#last_page()
+
+    nnoremap <Leader>mS :MarpStop<CR>
+    nnoremap <Leader>mf :MarpFirst<CR>
+    nnoremap <Leader>mp :MarpPrev<CR>
+    nnoremap <Leader>mn :MarpNext<CR>
+    nnoremap <Leader>ml :MarpLast<CR>
+  else
+    delcommand MarpStop
+    delcommand MarpFirst
+    delcommand MarpPrev
+    delcommand MarpNext
+    delcommand MarpLast 
+
+    nunmap <Leader>mS
+    nunmap <Leader>mf
+    nunmap <Leader>mp
+    nunmap <Leader>mn
+    nunmap <Leader>ml
+  end
+endfunction
+
 function! s:init(file)
+  call s:toggle_marp_mode()
+
   let s:tmpsession = tempname()
   exec 'mksession!' s:tmpsession
   tabnew
@@ -103,6 +134,8 @@ function! marp#last_page()
 endfunction
 
 function! marp#stop()
+  call s:toggle_marp_mode()
+
   unlet s:pages
   unlet s:page_number
   unlet s:total_pages
