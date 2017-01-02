@@ -50,7 +50,7 @@ endfunction
 function! s:footer()
   let footer = get(g:, 'marp_footer', s:page_number . '/' . s:total_pages)
   let padding = repeat('-', (80 - len(footer))/2)
-  return ['', printf(padding."%*s%*s".padding, 2+len(footer)/2, footer, 2-len(footer)/2,'')]
+  return ['', printf(padding.g:marp_footer_format.padding, 2+len(footer)/2, footer, 2-len(footer)/2,'')]
 endfunction
 
 function! s:paginate(lines)

@@ -7,6 +7,10 @@ if !exists('g:marp_delimiter')
   let g:marp_delimiter = '---'
 endif
 
+if !exists('g:marp_footer_format')
+  let g:marp_footer_format = '%*s%*s'
+endif
+
 command! MarpStart call marp#start(expand('%:p'))
 
 command! -nargs=1 -complete=file MarpFileStart call marp#start(<q-args>)
