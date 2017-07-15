@@ -16,6 +16,11 @@ function! s:toggle_marp_mode()
     nnoremap <Leader>mp :MarpPrev<CR>
     nnoremap <Leader>mn :MarpNext<CR>
     nnoremap <Leader>ml :MarpLast<CR>
+
+    nnoremap <Up> :MarpFirst<CR>
+    nnoremap <Left> :MarpPrev<CR>
+    nnoremap <Right> :MarpNext<CR>
+    nnoremap <Down> :MarpLast<CR>
   else
     delcommand MarpStop
     delcommand MarpFirst
@@ -28,6 +33,10 @@ function! s:toggle_marp_mode()
     nunmap <Leader>mp
     nunmap <Leader>mn
     nunmap <Leader>ml
+    nunmap <Up>
+    nunmap <Left>
+    nunmap <Right>
+    nunmap <Down>
   end
 endfunction
 
