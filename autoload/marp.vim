@@ -11,11 +11,11 @@ function! s:toggle_marp_mode()
     command! MarpNext call marp#next_page()
     command! MarpLast call marp#last_page()
 
-    nnoremap <Leader>mS :MarpStop<CR>
-    nnoremap <Leader>mf :MarpFirst<CR>
-    nnoremap <Leader>mp :MarpPrev<CR>
-    nnoremap <Leader>mn :MarpNext<CR>
-    nnoremap <Leader>ml :MarpLast<CR>
+    nnoremap q :MarpStop<CR>
+    nnoremap f :MarpFirst<CR>
+    nnoremap p :MarpPrev<CR>
+    nnoremap n :MarpNext<CR>
+    nnoremap l :MarpLast<CR>
 
     nnoremap <Up> :MarpFirst<CR>
     nnoremap <Left> :MarpPrev<CR>
@@ -28,11 +28,11 @@ function! s:toggle_marp_mode()
     delcommand MarpNext
     delcommand MarpLast 
 
-    nunmap <Leader>mS
-    nunmap <Leader>mf
-    nunmap <Leader>mp
-    nunmap <Leader>mn
-    nunmap <Leader>ml
+    nunmap q
+    nunmap f
+    nunmap p
+    nunmap n
+    nunmap l
     nunmap <Up>
     nunmap <Left>
     nunmap <Right>
@@ -87,7 +87,7 @@ function! s:set_page()
   let content += s:pages[s:page_number - 1]
   let content += s:footer()
 
-  normal! ggdG
+  %delete
   call setline(1, content)
 endfunction
 
