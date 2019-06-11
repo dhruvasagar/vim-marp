@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------------
 
         Simple presentations from markdown files inspired from Marp tool
-                                  Version 0.2.1
+                                  Version 0.3.0
 
                  Author: Dhruva Sagar (http://dhruvasagar.com)
                License: MIT (http://opensource.org/licenses/MIT)
@@ -84,20 +84,20 @@ MAPPINGS                                                         *marp-mappings*
                                                                *marp-<Leader>ms*
     `<Leader>ms`: mapping for `:MarpStart`
 
-                                                               *marp-<Leader>mS*
-    `<Leader>mS`: mapping for `:MarpStop`
+                                                               *marp-q*
+    `q`: mapping for `:MarpStop`
 
-                                                               *marp-<Leader>mf*
-    `<Leader>mf`: mapping for `:MarpFirst`
+                                                               *marp-f*
+    `f`: mapping for `:MarpFirst`
 
-                                                               *marp-<Leader>mp*
-    `<Leader>mp`: mapping for `:MarpPrev`
+                                                               *marp-p*
+    `p`: mapping for `:MarpPrev`
 
-                                                               *marp-<Leader>mn*
-    `<Leader>mn`: mapping for `:MarpNext`
+                                                               *marp-n*
+    `n`: mapping for `:MarpNext`
 
-                                                               *marp-<Leader>ml*
-    `<Leader>ml`: mapping for `:MarpLast`
+                                                               *marp-l*
+    `l`: mapping for `:MarpLast`
 
 ------------------------------------------------------------------------------
 CONTRIBUTING                                                 *marp-contributing*
