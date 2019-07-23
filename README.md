@@ -15,8 +15,10 @@ content to remove distractions. Once your presentation is done, you can invoke
 `:MarpStop` to end the presentation, this will restore your session as it was
 before you started your presentation.
 
-Alternatively you can also start presentation view with the |:MarpFileStart|
+Alternatively you can also start presentation view with the `:MarpFileStart`
 command giving the marp file as an input.
+
+For more information please refer `:h marp`
 
 ## Contributing
 
