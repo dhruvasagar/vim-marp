@@ -119,9 +119,9 @@ function! s:last_page()
   endif
 endfunction
 
-function! s:goyo()
+function! s:toggle_goyo()
   if g:marp_use_goyo && exists(':Goyo')
-    Goyo 120x95%
+    Goyo
   endif
 endfunction
 
@@ -130,7 +130,7 @@ function! marp#start(file)
   let content = s:readfile(a:file)
   call s:paginate(content)
   call s:set_page()
-  call s:goyo()
+  call s:toggle_goyo()
 endfunction
 
 function! marp#first_page()
@@ -156,7 +156,7 @@ function! marp#stop()
   unlet s:page_number
   unlet s:total_pages
 
-  call s:goyo()
+  call s:toggle_goyo()
 
   if filereadable(s:tmpsession)
     exec 'source' s:tmpsession
