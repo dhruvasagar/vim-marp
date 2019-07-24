@@ -11,6 +11,10 @@ if !exists('g:marp_footer_format')
   let g:marp_footer_format = '%*s%*s'
 endif
 
+if !exists('g:marp_use_goyo')
+  let g:marp_use_goyo = 1
+endif
+
 command! MarpStart call marp#start(expand('%:p'))
 
 command! -nargs=1 -complete=file MarpFileStart call marp#start(<q-args>)

@@ -12,10 +12,10 @@ function! s:toggle_marp_mode()
     command! MarpLast call marp#last_page()
 
     nnoremap q :MarpStop<CR>
-    nnoremap f :MarpFirst<CR>
-    nnoremap p :MarpPrev<CR>
-    nnoremap n :MarpNext<CR>
-    nnoremap l :MarpLast<CR>
+    nnoremap mf :MarpFirst<CR>
+    nnoremap mp :MarpPrev<CR>
+    nnoremap mn :MarpNext<CR>
+    nnoremap ml :MarpLast<CR>
 
     nnoremap <Up> :MarpFirst<CR>
     nnoremap <Left> :MarpPrev<CR>
@@ -29,10 +29,10 @@ function! s:toggle_marp_mode()
     delcommand MarpLast 
 
     nunmap q
-    nunmap f
-    nunmap p
-    nunmap n
-    nunmap l
+    nunmap mf
+    nunmap mp
+    nunmap mn
+    nunmap ml
     nunmap <Up>
     nunmap <Left>
     nunmap <Right>
@@ -92,30 +92,36 @@ function! s:set_page()
 endfunction
 
 function! s:first_page()
-  if s:page_number != 1
+  if exists('s:page_number') && s:page_number != 1
     let s:page_number = 1
     call s:set_page()
   endif
 endfunction
 
 function! s:prev_page()
-  if !exists('s:page_number') || s:page_number > 1
+  if exists('s:page_number') && s:page_number > 1
     let s:page_number -= 1
     call s:set_page()
   endif
 endfunction
 
 function! s:next_page()
-  if s:page_number < s:total_pages
+  if exists('s:page_number') && s:page_number < s:total_pages
     let s:page_number += 1
     call s:set_page()
   endif
 endfunction
 
 function! s:last_page()
-  if s:page_number != s:total_pages
+  if exists('s:page_number') && s:page_number != s:total_pages
     let s:page_number = s:total_pages
     call s:set_page()
+  endif
+endfunction
+
+function! s:goyo()
+  if g:marp_use_goyo
+    Goyo 120x95%
   endif
 endfunction
 
@@ -124,6 +130,7 @@ function! marp#start(file)
   let content = s:readfile(a:file)
   call s:paginate(content)
   call s:set_page()
+  call s:goyo()
 endfunction
 
 function! marp#first_page()
@@ -148,6 +155,8 @@ function! marp#stop()
   unlet s:pages
   unlet s:page_number
   unlet s:total_pages
+
+  call s:goyo()
 
   if filereadable(s:tmpsession)
     exec 'source' s:tmpsession
