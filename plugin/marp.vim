@@ -12,7 +12,7 @@ if !exists('g:marp_footer_format')
 endif
 
 if !exists('g:marp_use_goyo')
-  let g:marp_use_goyo = 1
+  let g:marp_use_goyo = exists(':Goyo')
 endif
 
 command! MarpStart call marp#start(expand('%:p'))

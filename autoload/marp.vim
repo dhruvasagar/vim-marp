@@ -120,7 +120,7 @@ function! s:last_page()
 endfunction
 
 function! s:goyo()
-  if g:marp_use_goyo
+  if g:marp_use_goyo && exists(':Goyo')
     Goyo 120x95%
   endif
 endfunction
