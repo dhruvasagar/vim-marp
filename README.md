@@ -1,4 +1,4 @@
-# VIM Marp v0.3.0
+# VIM Marp v0.4.0
 
 A simple presentation tool to present marp files from within vim
 
