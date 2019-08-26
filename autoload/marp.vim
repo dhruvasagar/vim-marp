@@ -49,6 +49,7 @@ function! s:init(file)
   tabonly
   setf markdown
   setl buftype=nofile bufhidden=wipe nobuflisted
+  setl nolist nofoldenable
   " exec 'file!' expand(a:file)
 endfunction
 
